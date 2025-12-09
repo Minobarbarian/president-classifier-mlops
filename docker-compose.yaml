@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # O ambiente da aplicação
+  app:
+    build: .
+    container_name: president_mlops_app
+    shm_size: '2gb'
+    volumes:
+      - .:/app    # Sincroniza pasta com o contêiner
+      # - /app/data # Exclui dados da sincronização se for enorme
+      
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+      - MONGO_DB=${MONGO_DB}
+      - WANDB_API_KEY=${WANDB_API_KEY}
+      - WANDB_PROJECT=${WANDB_PROJECT}
+      - ENV=${ENV}
+    depends_on:
+      - mongo
+    
+  # Banco de Dados
+  mongo:
+    image: mongo:latest
+    container_name: mlops_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # Interface visual para ver o banco de dados
+  mongo-express:
+    image: mongo-express
+    container_name: mlops_mongo_express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:

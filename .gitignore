@@ -1,0 +1,18 @@
+# --- Security & Config ---
+.env
+.vscode/
+.idea/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+
+# --- Data & Artifacts (Too large for git) ---
+data/
+wandb/
+*.pth
+*.keras
+
+# --- Docker ---
+.docker/

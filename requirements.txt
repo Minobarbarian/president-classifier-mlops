@@ -1,0 +1,23 @@
+# --- Aprendizado Profundo ---
+torch
+torchvision
+torchaudio
+
+# --- Preparação dos Dados ---
+icrawler
+facenet-pytorch
+Pillow
+numpy
+
+# --- MLOps & Experiment Tracking ---
+wandb
+
+# --- Base de Dados ---
+pymongo
+
+# --- Métricas & Utilidades ---
+scikit-learn
+matplotlib
+seaborn
+tqdm
+pytest
