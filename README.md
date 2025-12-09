@@ -8,20 +8,20 @@ Esse projeto segue o padrão "Model-View-Controller" (MVC) adaptado para Aprendi
 ```shell
 .                       
 ├── president_classifier/       # Lógica de Modelo
-│   ├── config.py               #
-│   ├── data.py                 #
-│   └── model.py                #
+│   ├── config.py               ## Dataclass para hiperparâmetros
+│   ├── data.py                 ## Crawler e Recorte Facial
+│   └── model.py                ## Wrapper do PyTorch ResNet18 (Treino/Eval/Save)
 ├── db/                         # Camada de Persistência
-│   └── registry.py             #
+│   └── registry.py             ## Conexão com MongoDB e lógica de registro
 ├── scripts/                    # Controladores
-│   ├── prepare.py              # Script: Baixa e processa as imagens
-│   ├── train.py                # Script: Varredura do Weights & Biases
-│   └── register.py             # Script: Registra o melhor modelo
+│   ├── prepare.py              ## Script: Baixa e processa as imagens
+│   ├── train.py                ## Script: Varredura do Weights & Biases
+│   └── register.py             ## Script: Registra o melhor modelo
 ├── docker-compose.yml          # App + MongoDB + MongoExpress
-├── Dockerfile                  # 
+├── Dockerfile                  # Instruções para montar o ambiente
 ├── requirements.txt            # Dependências
-├── sweep.yaml                  # Configuração da Varredura
-└── .env                        # Segredos e Configurações
+├── sweep.yaml                  # Configurações das Varreduras
+└── .env                        # Variáveis de Ambiente
 ```
 
 ## 🚀 Setup & Instalação
